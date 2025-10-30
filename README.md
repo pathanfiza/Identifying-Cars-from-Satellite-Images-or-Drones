@@ -37,6 +37,7 @@ The model is trained on a publicly available aerial car detection dataset.
 We utilize the state-of-the-art **YOLOv11-OBB** model for oriented object detection.
 
 **Deep Learning Model Structure:**
+
 Input Layer (640×640 image input)
 ↓
 Backbone: CSPDarknet with cross-stage partial connections
@@ -81,17 +82,7 @@ The model achieved excellent performance on the test set, meeting or exceeding p
 
 The model achieved excellent performance on the test set, meeting or exceeding project goals.
 
-| Metric | Achieved |
-| **Precision**  | **0.9091** |
-| **Recall** | ** 1.0000** |
-| **F1-Score** | **0.9524** |
-| **Accuracy** | **0.9944** |
-
-**Confusion Matrix Analysis:**
-*   **True Positives (TP):** 198 — correctly detected cars
-*   **False Positives (FP):** 25 — background regions wrongly identified as cars
-*   **False Negatives (FN):** 12 — cars missed by the model.
-
+![alt text](https://github.com/pathanfiza/Identifying-Cars-from-Satellite-Images-or-Drones/tree/main/Output/train_car/val_batch0_labels.jpg)
 ---
 
 ## 🚀 Usage
