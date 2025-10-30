@@ -2,7 +2,7 @@
 
 ## 📖 Project Overview
 
-This project focuses on automatically identifying and detecting cars in satellite or drone imagery using an advanced deep learning model — **YOLOv11-OBB (Oriented Bounding Box)**. The system is designed to detect cars from aerial views with high precision, even under varying orientations, scales, and lighting conditions. By leveraging YOLOv11's object detection and oriented bounding box capabilities, this project demonstrates how AI can be applied in defense and surveillance applications to monitor vehicles efficiently from large-scale imagery.
+This project focuses on automatically identifying and detecting cars in drone imagery using an advanced deep learning model — **YOLOv11-OBB (Oriented Bounding Box)**. The system is designed to detect cars from aerial views with high precision, even under varying orientations, scales, and lighting conditions. By leveraging YOLOv11's object detection and oriented bounding box capabilities, this project demonstrates how AI can be applied in defense and surveillance applications to monitor vehicles efficiently from large-scale imagery.
 
 ---
 
@@ -22,11 +22,11 @@ This project focuses on automatically identifying and detecting cars in satellit
 
 The model is trained on a publicly available aerial car detection dataset.
 
-*   **Source:** Kaggle – Car Detection Dataset (Aerial/Drone View)
-*   **Image Type:** Aerial and satellite images captured from drones or surveillance sources.
+*   **Source:**https://github.com/aniskoubaa/car_detection_yolo_faster_rcnn_uvsc2019Kaggle – Car Detection Dataset (Aerial/Drone View)
+*   **Image Type:** Aerial images captured from drones or surveillance sources.
 *   **Total Images:** ~5,000–10,000 labeled samples.
 *   **Annotations:** Bounding boxes marking the location and orientation of cars.
-*   **Classes:** 1 (Car) or multiple types (Car, Truck, Bus, Motorcycle).
+*   **Classes:** 1 (Car).
 *   **Features:** Image pixels and bounding box coordinates (x, y, width, height, angle).
 *   **Target Variable:** Object label ("car").
 
@@ -39,25 +39,23 @@ We utilize the state-of-the-art **YOLOv11-OBB** model for oriented object detect
 **Deep Learning Model Structure:**
 Input Layer (640×640 image input)
 ↓
-Backbone: CSPDarknet with convolutional layers and residual connections
+Backbone: CSPDarknet with cross-stage partial connections
 ↓
 Neck: PANet (Path Aggregation Network) for multi-scale feature fusion
 ↓
-Detection Head: YOLOv11-OBB layers for angle-based object localization
+Detection Head: YOLOv11-OBB with oriented bounding box prediction
 ↓
-Output Layer: Bounding box coordinates (x, y, w, h, θ), confidence score, and class label (Car)
+Output Layer: Bounding box coordinates (x1, y1, x2, y2, x3, y3, x4, y4), confidence score, and class label
 
 ---
 
 **Key Training Components:**
 *   **Architecture:** YOLOv11-OBB
-*   **Activation Function:** SiLU (Sigmoid Linear Unit)
-*   **Loss Function:** CIoU + Angle Loss
-*   **Optimizer:** Adam (`lr=0.001`)
-*   **Regularization:** DropBlock and data augmentation (flip, rotate, brightness)
-*   **Transfer Learning:** Pretrained weights (`yolo11s-obb.pt`)
+*   **Base Model:** Pretrained weights (`yolo11s-obb.pt`)
+*   **Optimizer:**  YOLO default Adam 
+*   **Regularization:** YOLO default augmentations (flip, rotate, brightness)
 *   **Batch Size:** 8
-*   **Epochs:** 50
+*   **Epochs:** 10
 *   **Image Size:** 640×640 pixels
 
 ---
@@ -66,27 +64,33 @@ Output Layer: Bounding box coordinates (x, y, w, h, θ), confidence score, and c
 
 The model achieved excellent performance on the test set, meeting or exceeding project goals.
 
-| Metric | Goal | Achieved |
-| :--- | :--- | :--- |
-| **mAP@50** | ≥ 0.98 | **0.982** |
-| **mAP@50:95** | ≥ 0.96 | **0.961** |
-| **Precision** | ≥ 0.96 | **0.991** |
-| **Recall** | ≥ 0.99 | **0.984** |
-| **F1-Score** | ≥ 0.98 | **0.987** |
-| **Inference Time/Image** | ≤ 1 sec | **0.84 sec** |
-
-**Detailed Classification Report:**
-
-| Class | Precision | Recall | F1-Score | Support |
-| :--- | :--- | :--- | :--- | :--- |
-| **Car** | 0.99 | 0.98 | 0.99 | 1200 |
-| **Background** | 1.00 | 0.99 | 1.00 | 800 |
-| **Average** | **1.00** | **0.995** | **0.99** | **2000** |
+| Metric | Achieved |
+| **Precision**  | **0.9091** |
+| **Recall** | ** 1.0000** |
+| **F1-Score** | **0.9524** |
+| **Accuracy** | **0.9944** |
 
 **Confusion Matrix Analysis:**
-*   **True Positives (TP):** 1,176 — correctly detected cars.
-*   **False Positives (FP):** 12 — background regions wrongly identified as cars.
-*   **False Negatives (FN):** 24 — cars missed by the model.
+*   **True Positives (TP):** 198 — correctly detected cars
+*   **False Positives (FP):** 25 — background regions wrongly identified as cars
+*   **False Negatives (FN):** 12 — cars missed by the model.
+
+---
+
+## 📊 Output
+
+The model achieved excellent performance on the test set, meeting or exceeding project goals.
+
+| Metric | Achieved |
+| **Precision**  | **0.9091** |
+| **Recall** | ** 1.0000** |
+| **F1-Score** | **0.9524** |
+| **Accuracy** | **0.9944** |
+
+**Confusion Matrix Analysis:**
+*   **True Positives (TP):** 198 — correctly detected cars
+*   **False Positives (FP):** 25 — background regions wrongly identified as cars
+*   **False Negatives (FN):** 12 — cars missed by the model.
 
 ---
 
@@ -103,14 +107,6 @@ Running in **Google Colab (Recommended)** is the easiest way to use this project
     *   Evaluate and log all metrics (mAP, Precision, Recall, F1-Score).
     *   Save the trained model weights.
     *   Run predictions on test images and display results with oriented bounding boxes.
-
-### Key Features of the Pipeline:
-*   **Automatic Dataset Setup:** Organizes uploaded folders into train/val/test sets.
-*   **YAML Auto-Generation:** Dynamically creates the dataset configuration file for YOLO.
-*   **Visualization Support:** View annotated bounding boxes for verification.
-*   **GPU Acceleration:** Automatically uses CUDA for faster training.
-*   **TensorBoard Integration:** Monitor training progress in real-time.
-*   **Prediction Output:** Generates annotated images with rotated bounding boxes.
 
 ---
 
@@ -135,7 +131,7 @@ Running in **Google Colab (Recommended)** is the easiest way to use this project
 | **Logging** | `tensorboard` | Training monitoring |
 
 **Configuration Summary:**
-*   **Epochs:** 10 for now but tested 
+*   **Epochs:** 10 for now but tested on 50 epochs
 *   **Image Size:** 640×640
 *   **Batch Size:** 8
 *   **Patience:** 15 epochs (for early stopping)
