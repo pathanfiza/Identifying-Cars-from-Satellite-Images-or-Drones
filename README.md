@@ -10,11 +10,11 @@ This project focuses on automatically identifying and detecting cars in drone im
 
 | Goal | Description |
 | :--- | :--- |
-| **Accurate Car Detection** | Identify and locate cars in high-resolution drone/satellite images with minimal false positives. |
-| **Orientation Awareness** | Use oriented bounding boxes (OBB) to capture rotated vehicles accurately. |
-| **Scalable Dataset Support** | Seamlessly train on large, custom datasets uploaded in a 6-folder format (train/val/test images + labels). |
-| **Automation** | Enable a complete pipeline: upload → train → evaluate → predict. |
-| **Defense Utility** | Support applications like traffic monitoring, vehicle tracking, and border surveillance. |
+| **🎯 Accurate Car Detection** | 🔍 Identify and locate cars in high-resolution drone/satellite images with minimal false positives. |
+| **🔄 Orientation Awareness** | 📐 Use oriented bounding boxes (OBB) to capture rotated vehicles accurately. |
+| **📊 Scalable Dataset Support** | 🗂️ Seamlessly train on large, custom datasets uploaded in a 6-folder format (train/val/test images + labels). |
+| **🤖 Automation** | ⚙️ Enable a complete pipeline: upload → train → evaluate → predict. |
+| **🛡️ Defense Utility** | 🎖️ Support applications like traffic monitoring, vehicle tracking, and border surveillance. |
 
 ---
 
@@ -22,13 +22,13 @@ This project focuses on automatically identifying and detecting cars in drone im
 
 The model is trained on a publicly available aerial car detection dataset.
 
-*   **Source:**https://github.com/aniskoubaa/car_detection_yolo_faster_rcnn_uvsc2019Kaggle – Car Detection Dataset (Aerial/Drone View)
-*   **Image Type:** Aerial images captured from drones or surveillance sources.
-*   **Total Images:** ~5,000–10,000 labeled samples.
-*   **Annotations:** Bounding boxes marking the location and orientation of cars.
-*   **Classes:** 1 (Car).
-*   **Features:** Image pixels and bounding box coordinates (x, y, width, height, angle).
-*   **Target Variable:** Object label ("car").
+*   **🌐 Source:** https://github.com/aniskoubaa/car_detection_yolo_faster_rcnn_uvsc2019Kaggle – Car Detection Dataset (Aerial/Drone View)
+*   **🖼️ Image Type:** Aerial images captured from drones or surveillance sources.
+*   **📈 Total Images:** ~5,000–10,000 labeled samples.
+*   **🏷️ Annotations:** Bounding boxes marking the location and orientation of cars.
+*   **📋 Classes:** 1 (Car).
+*   **🎛️ Features:** Image pixels and bounding box coordinates (x, y, width, height, angle).
+*   **🎯 Target Variable:** Object label ("car").
 
 ---
 
@@ -36,17 +36,13 @@ The model is trained on a publicly available aerial car detection dataset.
 
 We utilize the state-of-the-art **YOLOv11-OBB** model for oriented object detection.
 
-**Deep Learning Model Structure:**
-
-Input Layer (640×640 image input)
-↓
-Backbone: CSPDarknet with cross-stage partial connections
-↓
-Neck: PANet (Path Aggregation Network) for multi-scale feature fusion
-↓
-Detection Head: YOLOv11-OBB with oriented bounding box prediction
-↓
-Output Layer: Bounding box coordinates (x1, y1, x2, y2, x3, y3, x4, y4), confidence score, and class label
+| Layer | Component | Description |
+| :--- | :--- | :--- |
+| **Input** | RGB Image | 640×640 pixel input resolution |
+| **Backbone** | CSPDarknet | Cross-stage partial connections for feature extraction |
+| **Neck** | PANet | Path Aggregation Network for multi-scale feature fusion |
+| **Detection Head** | YOLOv11-OBB | Oriented bounding box prediction |
+| **Output** | Bounding Boxes | Coordinates (x1, y1, x2, y2, x3, y3, x4, y4), confidence score, and class label |
 
 ---
 
@@ -63,26 +59,30 @@ Output Layer: Bounding box coordinates (x1, y1, x2, y2, x3, y3, x4, y4), confide
 
 ## ⚡ Performance Results
 
-The model achieved excellent performance on the test set, meeting or exceeding project goals.
-
-| Metric | Achieved |
-| **Precision**  | **0.9091** |
-| **Recall** | ** 1.0000** |
-| **F1-Score** | **0.9524** |
-| **Accuracy** | **0.9944** |
+| Metric | Value |
+| :--- | :--- |
+| **🎯 Precision** | 0.9091 |
+| **📈 Recall** | 1.0000 |
+| **⚡ F1-Score** | 0.9524 |
+| **✅ Accuracy** | 0.9944 |
 
 **Confusion Matrix Analysis:**
-*   **True Positives (TP):** 198 — correctly detected cars
-*   **False Positives (FP):** 25 — background regions wrongly identified as cars
-*   **False Negatives (FN):** 12 — cars missed by the model.
+*   **✅ True Positives (TP):** 198 — correctly detected cars
+*   **❌ False Positives (FP):** 25 — background regions wrongly identified as cars
+*   **⚠️ False Negatives (FN):** 12 — cars missed by the model.
+
 
 ---
 
 ## 📊 Output
+🖼️ **Sample Detection Visualizations:**
+![00751](https://github.com/user-attachments/assets/5d84a960-8cfd-41cb-bbcb-3231e393d803)
+![00751 (4)](https://github.com/user-attachments/assets/8bf38820-cc8f-48c1-a295-cdf2906b1ec0)
+![val_batch0_labels](https://github.com/user-attachments/assets/8147d0d9-590f-4992-b108-327585193d06)
+![val_batch0_pred](https://github.com/user-attachments/assets/f72dc839-2e24-45db-a4c5-e1373e506740)
+![val_batch1_labels](https://github.com/user-attachments/assets/3cbf5a3e-0f03-4fde-a528-a8e53c406d49)
+![val_batch1_pred](https://github.com/user-attachments/assets/40d66a2e-629e-4d97-b2a8-d4a166f107a6)
 
-The model achieved excellent performance on the test set, meeting or exceeding project goals.
-
-![plot](https://github.com/pathanfiza/Identifying-Cars-from-Satellite-Images-or-Drones/tree/main/Output/train_car/val_batch0_labels.jpg)
 ---
 
 ## 🚀 Usage
@@ -103,11 +103,11 @@ Running in **Google Colab (Recommended)** is the easiest way to use this project
 
 ## 🛡️ Defense & Surveillance Applications
 
-*   **Border Monitoring:** Detect unauthorized vehicles entering restricted zones.
-*   **Military Surveillance:** Track convoy movement using aerial drones.
-*   **Disaster Response:** Locate parked or abandoned vehicles in damaged areas.
-*   **Urban Planning:** Analyze parking density and traffic flow from satellite imagery.
-*   **Law Enforcement:** Support real-time vehicle tracking for investigations.
+*   **🛂 Border Monitoring:** Detect unauthorized vehicles entering restricted zones.
+*   **🎖️ Military Surveillance:** Track convoy movement using aerial drones.
+*   **🚨 Disaster Response:** Locate parked or abandoned vehicles in damaged areas.
+*   **🏙️ Urban Planning:** Analyze parking density and traffic flow from satellite imagery.
+*   **👮 Law Enforcement:** Support real-time vehicle tracking for investigations.
 
 ---
 
@@ -131,14 +131,7 @@ Running in **Google Colab (Recommended)** is the easiest way to use this project
 
 ---
 
-## 💡 Project Impact & Future Enhancements
-
-**Real-World Benefits:**
-*   **Rapid Monitoring:** Enables large-scale vehicle monitoring from satellite/drone data.
-*   **Automation:** Drastically reduces manual image analysis workload.
-*   **High Accuracy:** Reliable detection with minimal false positives.
-*   **Scalability:** Can be adapted to detect other aerial objects (ships, buildings, tanks).
-*   **Defense Readiness:** Enhances surveillance and intelligence capabilities.
+## 💡 Future Enhancements
 
 **Future Enhancements:**
 *   **Model Enhancement:** Experiment with larger models like YOLOv11x-OBB for higher accuracy.
