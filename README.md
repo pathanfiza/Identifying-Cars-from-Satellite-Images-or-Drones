@@ -4,6 +4,8 @@
 
 This project focuses on automatically identifying and detecting cars in satellite or drone imagery using an advanced deep learning model — **YOLOv11-OBB (Oriented Bounding Box)**. The system is designed to detect cars from aerial views with high precision, even under varying orientations, scales, and lighting conditions. By leveraging YOLOv11's object detection and oriented bounding box capabilities, this project demonstrates how AI can be applied in defense and surveillance applications to monitor vehicles efficiently from large-scale imagery.
 
+---
+
 ## 🎯 Project Goals
 
 | Goal | Description |
@@ -14,6 +16,7 @@ This project focuses on automatically identifying and detecting cars in satellit
 | **Automation** | Enable a complete pipeline: upload → train → evaluate → predict. |
 | **Defense Utility** | Support applications like traffic monitoring, vehicle tracking, and border surveillance. |
 
+---
 
 ## 📊 Dataset Information
 
@@ -44,6 +47,7 @@ Detection Head: YOLOv11-OBB layers for angle-based object localization
 ↓
 Output Layer: Bounding box coordinates (x, y, w, h, θ), confidence score, and class label (Car)
 
+---
 
 **Key Training Components:**
 *   **Architecture:** YOLOv11-OBB
@@ -158,7 +162,7 @@ Running in **Google Colab (Recommended)** is the easiest way to use this project
 
 ---
 
-## 👥 Team Members
+## 👥 Author
 
 *   **Fiza Pathan** (22000986) - Project Developer
 *   **Mahi V Prajapati** (22000996) - Project Co-Developer
@@ -167,12 +171,3 @@ Running in **Google Colab (Recommended)** is the easiest way to use this project
 *   **University:** Navrachana University, Vadodara  
 *   **Course In-Charge:** Prof. Chintan Shah
 
-
----
-
-## 🙏 Acknowledgments
-
-*   **Ultralytics Team** for the robust YOLOv11 framework and continuous support.
-*   **Google Colab** for providing free GPU resources.
-*   **Navrachana University** for academic guidance and resources.
-*   **Open-source communities** and **Kaggle** for contributing to aerial object detection datasets.
