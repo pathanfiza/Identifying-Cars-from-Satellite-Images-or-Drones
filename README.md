@@ -135,7 +135,7 @@ Running in **Google Colab (Recommended)** is the easiest way to use this project
 | **Logging** | `tensorboard` | Training monitoring |
 
 **Configuration Summary:**
-*   **Epochs:** 50
+*   **Epochs:** 10 for now but tested 
 *   **Image Size:** 640×640
 *   **Batch Size:** 8
 *   **Patience:** 15 epochs (for early stopping)
@@ -166,8 +166,9 @@ Running in **Google Colab (Recommended)** is the easiest way to use this project
 
 *   **Fiza Pathan** (22000986) - Project Developer
 *   **Mahi V Prajapati** (22000996) - Project Co-Developer
-*   **Course:** Deep Learning Laboratory (CSE702)  
+*   **Course:** Deep Learning Laboratory (CSE702)
+*   **Course In-Charge:** Prof. Chintan Shah
 *   **Program:** Bachelor of Technology (CSE), Semester 7, Autumn 2025  
 *   **University:** Navrachana University, Vadodara  
-*   **Course In-Charge:** Prof. Chintan Shah
+
 
