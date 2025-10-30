@@ -82,7 +82,7 @@ The model achieved excellent performance on the test set, meeting or exceeding p
 
 The model achieved excellent performance on the test set, meeting or exceeding project goals.
 
-![alt text](https://github.com/pathanfiza/Identifying-Cars-from-Satellite-Images-or-Drones/tree/main/Output/train_car/val_batch0_labels.jpg)
+![plot](https://github.com/pathanfiza/Identifying-Cars-from-Satellite-Images-or-Drones/tree/main/Output/train_car/val_batch0_labels.jpg)
 ---
 
 ## 🚀 Usage
