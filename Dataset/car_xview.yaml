@@ -1,0 +1,11 @@
+
+path: /content/drive/MyDrive/Colab Notebooks/DeepLearning/car_detection_yolo_faster_rcnn_uvsc2019-master/car_detection_yolo_faster_rcnn_uvsc2019-master/Images  # dataset root dir
+train:   /content/drive/MyDrive/Colab Notebooks/DeepLearning/car_detection_yolo_faster_rcnn_uvsc2019-master/car_detection_yolo_faster_rcnn_uvsc2019-master/Images/00481.jpg# train images (relative to path)
+val: /content/drive/MyDrive/Colab Notebooks/DeepLearning/car_detection_yolo_faster_rcnn_uvsc2019-master/car_detection_yolo_faster_rcnn_uvsc2019-master/val    # val images (relative to path)
+test: /content/drive/MyDrive/Colab Notebooks/DeepLearning/car_detection_yolo_faster_rcnn_uvsc2019-master/car_detection_yolo_faster_rcnn_uvsc2019-master/test    # test images (optional)
+
+# Classes - only 'car' (we map xView's 'Small Car' -> 'car')
+names:
+  0: car
+
+# Note: We'll filter labels in preprocessing to keep only 'Small Car' (class 17 in xView)

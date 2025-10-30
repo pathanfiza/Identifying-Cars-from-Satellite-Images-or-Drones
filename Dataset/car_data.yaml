@@ -1,0 +1,8 @@
+
+path: /content/drive/MyDrive/car_detection_satellite/datasets/car_dataset
+train: images/train
+val:   images/val
+test:  images/test
+
+names:
+  0: car
